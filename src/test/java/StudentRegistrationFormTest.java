@@ -26,14 +26,14 @@ public class StudentRegistrationFormTest {
         $("#firstName").setValue("Alex");
         $("#userEmail").setValue("alex@gmail.com");
         $("#lastName").setValue("Saegn");
-        $("label[for='gender-radio-2']").click();
+        $("#genterWrapper").$(byText("Female")).click();
         $("#userNumber").setValue("7846586867");
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").$(byText("July")).click();
         $(".react-datepicker__year-select").$(byText("1980")).click();
         $(".react-datepicker__day--026").click();
         $("#subjectsInput").setValue("English").pressEnter();
-        $("label[for='hobbies-checkbox-1']").click();
+        $("#hobbiesWrapper").$(byText("Sports")).click();
         $("#uploadPicture").uploadFromClasspath("example.jpeg");
         $("#currentAddress").setValue("11250 E STATE ROUTE 69 DEWEY AZ 86327-4422 USA");
         $("#react-select-3-input").setValue("NCR").pressEnter();
