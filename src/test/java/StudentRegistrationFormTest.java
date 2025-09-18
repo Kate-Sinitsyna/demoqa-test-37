@@ -1,5 +1,6 @@
 package src.test.java;
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -28,18 +29,24 @@ public class StudentRegistrationFormTest {
         $("#lastName").setValue("Saegn");
         $("#genterWrapper").$(byText("Female")).click();
         $("#userNumber").setValue("7846586867");
+
         $("#dateOfBirthInput").click();
-        $(".react-datepicker__month-select").$(byText("July")).click();
-        $(".react-datepicker__year-select").$(byText("1980")).click();
-        $(".react-datepicker__day--026").click();
+        $(".react-datepicker__month-select").selectOption("July"); //best
+            //$(".react-datepicker__month-select").selectOptionByValue("6");
+    //        $(".react-datepicker__month-select").$(byText("July")).click();
+        $(".react-datepicker__year-select").selectOption("1988"); //best
+    //        $(".react-datepicker__year-select").$(byText("1980")).click();
+        $(".react-datepicker__day--030:not(.react-datepicker__day--outside-month)").click();
+//        $(".react-datepicker__day--026").click();
+
         $("#subjectsInput").setValue("English").pressEnter();
         $("#hobbiesWrapper").$(byText("Sports")).click();
-        $("#uploadPicture").uploadFromClasspath("example.jpeg");
+        $("#uploadPicture").uploadFromClasspath("example.jpeg"); //отработает только если type = file
         $("#currentAddress").setValue("11250 E STATE ROUTE 69 DEWEY AZ 86327-4422 USA");
-        $("#react-select-3-input").setValue("NCR").pressEnter();
-        // $("#city").click();
-        $("#react-select-4-input").setValue("Delhi").pressEnter();
-        $("#submit").click();
+//        $("#react-select-3-input").setValue("NCR").pressEnter();
+//        // $("#city").click();
+//        $("#react-select-4-input").setValue("Delhi").pressEnter();
+//        $("#submit").click();
 
         //Проверка результата заполнения формы
 
