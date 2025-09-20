@@ -18,13 +18,14 @@ public class StudentRegistrationFormWithPageObjectsTests extends TestBase {
     @Test
     void successfulFilFormTest() {
         registrationPage.openPage();
+        registrationPage.deleteAds();
 
         registrationPage.setFirstName("Alex")
                 .setLastName("Saegn")
                 .setUserEmail("alex@gmail.com")
                 .setUserNumber("7846586867")
                 .setGender("Male")
-                .setDateOfBirth("30", "July", "2009")
+                .setDateOfBirth("July", "2009")
                 .setSubjects("English")
                 .setHobbies("Sports")
                 .uploadPicture("example.jpeg")
@@ -62,6 +63,7 @@ public class StudentRegistrationFormWithPageObjectsTests extends TestBase {
     @Test
     void negativeEmptyFormTest() {
         registrationPage.openPage()
+                .deleteAds()
                 .submitForm();
 
         modalWindow.checkFormNotAppears();
@@ -69,6 +71,7 @@ public class StudentRegistrationFormWithPageObjectsTests extends TestBase {
     @Test
     void negativeFillFormNameFieldsTest() {
         registrationPage.openPage()
+                .deleteAds()
                 .setFirstName(" ")
                 .setLastName(" ")
                 .setUserNumber("0001112222")
@@ -80,6 +83,7 @@ public class StudentRegistrationFormWithPageObjectsTests extends TestBase {
     @Test
     void negativeFillFormUserNumberFieldTest() {
         registrationPage.openPage()
+                .deleteAds()
                 .setFirstName("Peter")
                 .setLastName("Koch")
                 .setUserNumber(" ")

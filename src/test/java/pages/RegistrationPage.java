@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class RegistrationPage {
-    private SelenideElement firstNameInput = $("#firstName"),
+    private final SelenideElement firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
             userEmailInput = $("#userEmail"),
             userNumberInput = $("#userNumber"),
@@ -29,6 +29,12 @@ public class RegistrationPage {
 
     public RegistrationPage openPage(){
         open("/automation-practice-form");
+        executeJavaScript("$('footer').remove();");
+        executeJavaScript("$('#fixedban').remove()");
+
+        return this;
+    }
+    public RegistrationPage deleteAds(){
         executeJavaScript("$('footer').remove();");
         executeJavaScript("$('#fixedban').remove()");
 
@@ -59,9 +65,9 @@ public class RegistrationPage {
 
         return this;
     }
-    public RegistrationPage setDateOfBirth(String day, String mounth, String year){
+    public RegistrationPage setDateOfBirth(String month, String year){
         calendarInput.click();
-        calendarComponent.setDate(day, mounth, year);
+        calendarComponent.setDate(month, year);
 
         return this;
     }
@@ -97,12 +103,6 @@ public class RegistrationPage {
     }
     public RegistrationPage submitForm(){
         submitButton.click();
-
-        return this;
-    }
-
-    public RegistrationPage checkResult(String key, String value){
-        $(".table-responsive").$(byText(key)).parent().shouldHave(text(value));
 
         return this;
     }
