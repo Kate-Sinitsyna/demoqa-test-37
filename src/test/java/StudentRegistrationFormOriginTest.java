@@ -1,17 +1,13 @@
-package src.test.java;
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import pages.RegistrationPage;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Selenide.$;
 
-public class StudentRegistrationFormTest {
+public class StudentRegistrationFormOriginTest {
     @BeforeAll
     static void setUpConfig() {
         Configuration.browserSize = "1920x1080";
@@ -30,6 +26,7 @@ public class StudentRegistrationFormTest {
         $("#lastName").setValue("Saegn");
         $("#genterWrapper").$(byText("Female")).click();
         $("#userNumber").setValue("7846586867");
+
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption("July"); //best
             //$(".react-datepicker__month-select").selectOptionByValue("6");
@@ -38,13 +35,14 @@ public class StudentRegistrationFormTest {
             //$(".react-datepicker__year-select").$(byText("1980")).click();
         $(".react-datepicker__day--030:not(.react-datepicker__day--outside-month)").click();
             //$(".react-datepicker__day--026").click();
+
         $("#subjectsInput").setValue("English").pressEnter();
         $("#hobbiesWrapper").$(byText("Sports")).click();
         $("#uploadPicture").uploadFromClasspath("example.jpeg"); //отработает только если type = file
         $("#currentAddress").setValue("11250 E STATE ROUTE 69 DEWEY AZ 86327-4422 USA");
-        $("#react-select-3-input").setValue("NCR").pressEnter();
+//        $("#react-select-3-input").setValue("NCR").pressEnter();
 //        // $("#city").click();
-        $("#react-select-4-input").setValue("Delhi").pressEnter();
+//        $("#react-select-4-input").setValue("Delhi").pressEnter();
 //        $("#submit").click();
 
         //Проверка результата заполнения формы
