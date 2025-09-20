@@ -1,14 +1,8 @@
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
+package tests;
+
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 import pages.component.CheckResult;
-import tests.TestBase;
-
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
 
 public class StudentRegistrationFormWithPageObjectsTests extends TestBase {
 
