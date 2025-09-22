@@ -29,8 +29,6 @@ public class RegistrationPage {
 
     public RegistrationPage openPage(){
         open("/automation-practice-form");
-        executeJavaScript("$('footer').remove();");
-        executeJavaScript("$('#fixedban').remove()");
 
         return this;
     }
@@ -65,9 +63,9 @@ public class RegistrationPage {
 
         return this;
     }
-    public RegistrationPage setDateOfBirth(String month, String year){
+    public RegistrationPage setDateOfBirth(String day, String month, String year){
         calendarInput.click();
-        calendarComponent.setDate(month, year);
+        calendarComponent.setDate(day, month, year);
 
         return this;
     }
