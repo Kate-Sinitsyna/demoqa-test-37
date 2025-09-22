@@ -20,7 +20,7 @@ public class TestData {
         year = String.valueOf(faker.number().numberBetween(1900, Year.now().getValue() - 17)),
         subject = faker.options().option("Math", "Physics", "Chemistry","Arts", "Accounting", "Social Studies"),
         hobbies = faker.options().option("Sports", "Reading","Music"),
-        picture = faker.file().,
+        picture = faker.options().option("example.jpeg","example-2.png", "example-3.png"),
         state = faker.options().option("NCR", "Uttar Pradesh","Haryana", "Rajasthan"),
         city = selectCity(state);
 
